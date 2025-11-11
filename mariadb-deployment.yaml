@@ -25,6 +25,8 @@ spec:
           name: mariadb
           resources: {}
           env:
+            - name: "MEINE_ENV_VAR"
+              value: "super"
             - name: "MARIADB_RANDOM_ROOT_PASSWORD"
               value: "yes"
             - name: "MARIADB_DATABASE"
