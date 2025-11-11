@@ -28,4 +28,6 @@ spec:
           value: my_password
         - name: DB_NAME
           value: learning
+        - name: DB_HOST
+          value: mariadb
 status: {}
