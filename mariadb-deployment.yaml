@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mariadb
+  name: mariadb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mariadb
+    spec:
+      volumes:
+        - name: mariadb-data
+          emptyDir: {}
+      containers:
+        - image: mariadb
+          name: mariadb
+          resources: {}
+          env:
+            - name: "MARIADB_RANDOM_ROOT_PASSWORD"
+              value: "yes"
+            - name: "MARIADB_DATABASE"
+              value: "learning"
+            - name: "MARIADB_USER"
+              value: "app"
+            - name: "MARIADB_PASSWORD"
+              value: "my_password"
+          volumeMounts:
+            - name: mariadb-data
+              mountPath: /var/lib/mysql
